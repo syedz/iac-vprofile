@@ -66,6 +66,7 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
+      # Will only apply if on the main branch and on a push event
       - name: Terraform Apply
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
